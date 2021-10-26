@@ -7,7 +7,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
     /*authentication*/
     Route::group(['namespace' => 'Auth', 'prefix' => 'auth', 'as' => 'auth.'], function () {
         Route::get('login', 'LoginController@login')->name('login');
-        Route::post('login', 'LoginController@submit')->middleware('actch');
+        Route::post('login', 'LoginController@submit');
         Route::get('logout', 'LoginController@logout')->name('logout');
     });
     /*authentication*/
@@ -53,7 +53,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::delete('delete/{id}', 'EmployeeController@distroy')->name('delete');
             Route::post('search', 'EmployeeController@search')->name('search');
         });
-        Route::post('food/variant-price', 'FoodController@variant_price')->name('food.variant-price');\
+        Route::post('food/variant-price', 'FoodController@variant_price')->name('food.variant-price');
         Route::group(['prefix' => 'food', 'as' => 'food.', 'middleware' => ['module:food']], function () {
             Route::get('add-new', 'FoodController@index')->name('add-new');
             Route::post('variant-combination', 'FoodController@variant_combination')->name('variant-combination');
@@ -254,7 +254,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::delete('delete/{id}', 'NotificationController@delete')->name('delete');
         });
 
-        Route::group(['prefix' => 'business-settings', 'as' => 'business-settings.', 'middleware' => ['module:settings','actch']], function () {
+        Route::group(['prefix' => 'business-settings', 'as' => 'business-settings.', 'middleware' => ['module:settings']], function () {
             Route::get('business-setup', 'BusinessSettingsController@business_index')->name('business-setup');
             Route::get('config-setup', 'BusinessSettingsController@config_setup')->name('config-setup');
             Route::post('config-update', 'BusinessSettingsController@config_update')->name('config-update');
