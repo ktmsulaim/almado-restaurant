@@ -32,15 +32,12 @@ class FileManagerLogic
         {
             $name = self::get_file_name($file);
             $ext = self::get_file_ext($name);
-            $path = '';
-            if($type == 'file')
-            {
-                $path = $file;
-            }
-            if($type == 'folder')
-            {
-                $path = $file;
-            }
+            $path = $file;
+
+            // if(str_contains($path, 'public/')) {
+            //     $path = str_replace('public/', '', $path);
+            // }
+
             if(in_array($ext, ['jpg', 'png', 'jpeg', 'gif', 'bmp', 'tif', 'tiff']) || $type=='folder')
             $data[] = [
                 'name'=> $name,

@@ -60,10 +60,10 @@
                                 <p>{{Str::limit($file['name'],10)}}</p>
                             </a>
                             @elseif($file['type']=='file')
-                            <!-- <a class="btn" href="{{asset('storage/app/'.$file['path'])}}" download> -->
+                            <!-- <a class="btn" href="{{asset('storage/'.str_replace('public/', '', $file['path']))}}" download> -->
                             <button class="btn w-100"  data-toggle="modal" data-target="#imagemodal{{$key}}" title="{{$file['name']}}">
                                 <div class="gallary-card">
-                                    <img src="{{asset('storage/app/'.$file['path'])}}" alt="{{$file['name']}}" style="height:auto;width:100%;">
+                                    <img src="{{asset('storage/'.str_replace('public/', '', $file['path']))}}" alt="{{$file['name']}}" style="height:auto;width:100%;">
                                 </div>    
                                 <p style="overflow:hidden">{{Str::limit($file['name'],10)}}</p>
                             </button>
@@ -75,7 +75,7 @@
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{asset('storage/app/'.$file['path'])}}" style="width: 100%; height: auto;" >
+                                            <img src="{{asset('storage/'.str_replace('public/', '', $file['path']))}}" style="width: 100%; height: auto;" >
                                         </div>
                                         <div class="modal-footer">
                                             <a class="btn btn-primary" href="{{route('admin.file-manager.download', base64_encode($file['path']))}}"><i class="tio-download"></i> {{__('messages.download')}} </a>

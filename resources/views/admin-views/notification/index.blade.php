@@ -134,7 +134,7 @@
                                     <td>
                                         @if($notification['image']!=null)
                                             <img style="height: 50px"
-                                                 src="{{asset('storage/app/notification')}}/{{$notification['image']}}">
+                                                 src="{{asset('storage/notification')}}/{{$notification['image']}}">
                                         @else
                                             <label class="badge badge-soft-warning">No {{__('messages.image')}}</label>
                                         @endif

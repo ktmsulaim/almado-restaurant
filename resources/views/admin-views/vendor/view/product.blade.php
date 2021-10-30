@@ -117,7 +117,7 @@
                                         </td>
                                         <td>
                                             <div style="height: 100px; width: 100px; overflow-x: hidden;overflow-y: hidden">
-                                                <img src="{{asset('storage/app/product')}}/{{$food['image']}}" style="width: 100px"
+                                                <img src="{{asset('storage/product')}}/{{$food['image']}}" style="width: 100px"
                                                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'">
                                             </div>
                                         </td>
@@ -164,7 +164,7 @@
                                     <td>{{$key+1}}</td>
                                     <td>
                                         <a class="media align-items-center" href="{{route('admin.food.view',[$food['id']])}}">
-                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/product')}}/{{$food['image']}}" 
+                                            <img class="avatar avatar-lg mr-3" src="{{asset('storage/product')}}/{{$food['image']}}" 
                                                  onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'" alt="{{$food->name}} image">
                                             <div class="media-body">
                                                 <h5 class="text-hover-primary mb-0">{{$food['name']}}</h5>

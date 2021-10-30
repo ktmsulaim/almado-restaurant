@@ -70,7 +70,7 @@
                             <div class="form-group" style="margin-bottom:0%;">
                                 <center>
                                     <img style="width: 80%;border: 1px solid; border-radius: 10px;" id="viewer"
-                                         src="{{asset('storage/app/campaign')}}/{{$campaign->image}}" alt="campaign image"/>
+                                         src="{{asset('storage/campaign')}}/{{$campaign->image}}" alt="campaign image"/>
                                 </center>
                             </div>
                         </div>

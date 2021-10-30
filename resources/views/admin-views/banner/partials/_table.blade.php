@@ -3,7 +3,7 @@
         <td>{{$key+1}}</td>
         <td>
             <span class="media align-items-center">
-                <img class="avatar avatar-lg mr-3" src="{{asset('storage/app/banner')}}/{{$banner['image']}}" 
+                <img class="avatar avatar-lg mr-3" src="{{asset('storage/banner')}}/{{$banner['image']}}" 
                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'" alt="{{$banner->name}} image">
                 <div class="media-body">
                     <h5 class="text-hover-primary mb-0">{{$banner['title']}}</h5>

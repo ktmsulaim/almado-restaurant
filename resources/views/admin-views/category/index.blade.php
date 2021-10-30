@@ -44,7 +44,7 @@
                                 <center>
                                     <img style="width: 80%;border: 1px solid; border-radius: 10px;" id="viewer"
                                         @if(isset($category))
-                                        src="{{asset('storage/app/category')}}/{{$category['image']}}"
+                                        src="{{asset('storage/category')}}/{{$category['image']}}"
                                         @else
                                         src="{{asset('assets/admin/img/900x400/img1.jpg')}}"
                                         @endif

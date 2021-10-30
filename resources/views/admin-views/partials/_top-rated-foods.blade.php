@@ -25,7 +25,7 @@
                         style="cursor: pointer">
                         <td scope="row">
                             <img height="35" style="border-radius: 5px"
-                                 src="{{asset('storage/app/product')}}/{{$food['image']}}"
+                                 src="{{asset('storage/product')}}/{{$food['image']}}"
                                  onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
                                  alt="{{$food->name}} image">
                             <span class="ml-2">
