@@ -276,13 +276,13 @@ class Helpers
                 }
             }
         } else {
-            if($item->food)
+            if($data->food)
             {
-                $foods[] = self::product_data_formatting($item->food);
+                $foods[] = self::product_data_formatting($data->food);
             }
-            if($item->restaurant)
+            if($data->restaurant)
             {
-                $restaurants[] = self::restaurant_data_formatting($item->restaurant);
+                $restaurants[] = self::restaurant_data_formatting($data->restaurant);
             }
         }
 
