@@ -12,6 +12,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+
 
 class CustomerAuthController extends Controller
 {
@@ -26,6 +28,7 @@ class CustomerAuthController extends Controller
             return response()->json(['errors' => Helpers::error_processor($validator)], 403);
         }
         $user = User::where('phone', $request->phone)->first();
+
         if($user)
         {
             if($user->is_phone_verified)
@@ -208,7 +211,9 @@ class CustomerAuthController extends Controller
             'phone' => $request->phone,
             'password' => $request->password
         ];
+        
         $customer_verification = BusinessSetting::where('key','customer_verification')->first()->value;
+
         if (auth()->attempt($data)) {
             $token = auth()->user()->createToken('RestaurantCustomerAuth')->accessToken;
             if(!auth()->user()->status)
