@@ -86,6 +86,16 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::delete('delete/{banner}', 'BannerController@delete')->name('delete');
             Route::post('search', 'BannerController@search')->name('search');
         });
+        
+        Route::group(['prefix' => 'sliders', 'as' => 'sliders.', 'middleware' => ['module:sliders']], function () {
+            Route::get('add-new', 'SliderController@index')->name('add-new');
+            Route::post('store', 'SliderController@store')->name('store');
+            Route::get('edit/{slider}', 'SliderController@edit')->name('edit');
+            Route::post('update/{slider}', 'SliderController@update')->name('update');
+            Route::get('status/{id}/{status}', 'SliderController@status')->name('status');
+            Route::delete('delete/{slider}', 'SliderController@delete')->name('delete');
+            Route::post('search', 'SliderController@search')->name('search');
+        });
 
         Route::group(['prefix' => 'campaign', 'as' => 'campaign.', 'middleware' => ['module:campaign']], function () {
             Route::get('{type}/add-new', 'CampaignController@index')->name('add-new');

@@ -1,181 +1,174 @@
 @extends('layouts.landing.app')
 
-@section('title','Landing Page | '.\App\Models\BusinessSetting::where(['key'=>'business_name'])->first()->value??'Stack Food')
+@section('title', 'Home | ' . \App\Models\BusinessSetting::where(['key' => 'business_name'])->first()->value ?? 'Almado
+    Arabian Cuisine')
 
 @section('content')
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="{{ asset('assets/landing/images/hero-bg.jpg') }}" alt="">
+        </div>
 
-    <main>
-        <div class="main-body-div">
-            <!-- Top Start -->
-            <section class="top-start">
-                <div class="container ">
-                    <div class="row">
-                        <div class="row col-lg-7 top-content">
-                            <div>
-                                <h3 class="d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                                    {{__('messages.header_title_1')}}
-                                </h3>
-                                <span
-                                    class="d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                                     {{__('messages.header_title_2')}}
-                                </span>
-                                <h4 class="d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                                    {{__('messages.header_title_3')}}
-                                </h4>
-                            </div>
-
-                            <div class="download-buttons">
-                                <div class="play-store">
-                                    <a href="https://play.google.com">
-                                        <img src="{{asset('assets/landing')}}/image/play_store.png">
-                                    </a>
-                                </div>
-
-                                <div class="apple-store">
-                                    <a href="https://www.apple.com/app-store">
-                                        <img src="{{asset('assets/landing')}}/image/apple_store.png">
-                                    </a>
-                                </div>
-
-                                <div class="apple-store">
-                                    <a href="#">
-                                        <img src="{{asset('assets/landing')}}/image/browse.png">
-                                    </a>
+        @if ($sliders && $sliders->count())
+            <!-- slider section -->
+            <section class="slider_section ">
+                <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($sliders as $key => $slider)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <div class="container ">
+                                    <div class="row">
+                                        <div class="col-md-7 col-lg-6 ">
+                                            <div class="detail-box">
+                                                <h1>
+                                                    {{ $slider->title }}
+                                                </h1>
+                                                <p>
+                                                    {{ $slider->description }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div
-                            class="col-lg-5 d-flex justify-content-center justify-content-md-end text-center text-md-right top-image">
-                            <img src="{{asset('assets/landing')}}/image/double_screen_image.png">
-                        </div>
+                        @endforeach
                     </div>
-                </div>
-            </section>
-            <!-- Top End -->
-
-            <!-- About Us Start -->
-            <section class="about-us">
-                <div class="container">
-                    <div class="row featured-section">
-                        <div class="col-12 featured-title-m">
-                            <span>About Us</span>
-                        </div>
-                        <div
-                            class="col-lg-6 col-md-6  d-flex justify-content-center justify-content-md-start text-center text-md-left featured-section__image">
-                            <img src="{{asset('assets/landing')}}/image/about_us_image.png"></img>
-                        </div>
-                        <!-- <div class="col-lg-3 col-md-0"></div> -->
-                        <div class="col-lg-6 col-md-6">
-                            <div class="featured-section__content"
-                                 class="d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                                <span>About Us</span>
-                                <h2
-                                    class="d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                                    {{__('messages.about_title')}}</h2>
-                                <p
-                                    class="d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                                    {!! \Illuminate\Support\Str::limit(\App\CentralLogics\Helpers::get_settings('about_us'),200) !!}
-                                </p>
-                                <div
-                                    class="d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                                    <a href="{{route('about-us')}}"
-                                       class="btn btn-color-primary text-white rounded align-middle">Read More
-                                        ...</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- About Us End -->
-
-            <!-- Why Choose Us Start -->
-            <section class="why-choose-us">
-                <div class="container">
-                    <div class="row choosing-section">
-                        <div class="choosing-section__title">
-                            <div>
-                                <h2>{{__('messages.why_choose_us')}}</h2>
-                                <span>{{__('messages.why_choose_us_title')}}</span>
-                                <hr class="customed-hr-1">
-                            </div>
-                        </div>
-                        <div class="choosing-section__content">
-                            <div>
-                                <div class="choosing-section__image-card">
-                                    <img src="{{asset('assets/landing')}}/image/clean_&_cheap_icon.png"></img>
-                                </div>
-                                <div style="margin: 0px 55px 30px 54px">
-                                    <p>Clean & Cheap Price</p>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="choosing-section__image-card">
-                                    <img src="{{asset('assets/landing')}}/image/best_dishes_icon.png"></img>
-                                </div>
-                                <div style="margin: 0px 54px 30px 55px">
-                                    <p>Best Dishes Near You</p>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="choosing-section__image-card">
-                                    <img
-                                        src="{{asset('assets/landing')}}/image/virtual_restaurant_icon.png"></img>
-                                </div>
-                                <div style="margin: 0px 31px 30px 31px">
-                                    <p>Your Own Virtual Restaurant</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="container">
+                        <ol class="carousel-indicators">
+                            @foreach ($sliders as $key => $dot)
+                                <li data-target="#customCarousel1" data-slide-to="{{ $key }}"
+                                    class="{{ $key == 0 ? 'active' : null }}"></li>
+                            @endforeach
+                        </ol>
                     </div>
                 </div>
 
             </section>
-            <!-- Why Choose Us End -->
+            <!-- end slider section -->
+        @endif
+    </div>
 
-            <!-- Trusted Customers Starts -->
-            <section class="trusted-customers">
-                <div class="container">
-                    <div class="trusted_customers__title">
-                        <span class="trusted-customer mt-4" style="font-size: 33px">{{__('messages.trusted_by_customer')}} & {{__('messages.trusted_by_restaurant')}}</span>
-                    </div>
+    <!-- food section -->
 
-                    <div class="mt-5">
-                        <div class="demo">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div id="testimonial-slider" class="owl-carousel">
-                                            @foreach(include('assets/landing/data/testimonial.php') as $data)
-                                                <div class="testimonial">
-                                                    <div class="pic">
-                                                        <img src="{{$data['image']}}"
-                                                             alt="">
-                                                    </div>
-                                                    <div class="testimonial-content">
-                                                        <h3 class="testimonial-title">
-                                                            {{$data['name']}}
-                                                            <small class="post">{{$data['position']}}</small>
-                                                        </h3>
-                                                        <p class="description">
-                                                           {{$data['detail']}}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            @endforeach
+    <section class="food_section layout_padding-bottom layout_padding-top">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Our Menu
+                </h2>
+            </div>
+
+            <ul class="filters_menu">
+                <li class="active" data-filter="*">All</li>
+                @if ($categories)
+                    @foreach ($categories as $category)
+                        <li data-filter=".cat-{{ str_slug($category->name) }}">{{ $category->name }}</li>
+                    @endforeach
+                @endif
+            </ul>
+
+            <div class="filters-content">
+                <div class="row grid">
+                    @if ($foods)
+                        @foreach ($foods as $food)    
+                        <div class="col-sm-6 col-lg-4 all cat-{{ str_slug($food->category) }}">
+                            <div class="box">
+                                <div>
+                                    <div class="img-box">
+                                        <img src="{{asset('storage/product')}}/{{$food->image}}" onerror="{{asset('assets/admin/img/160x160/img2.jpg')}}" alt="">
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            {{ $food->name }}
+                                        </h5>
+                                        <p>
+                                            {{ $food->description }}
+                                        </p>
+                                        <div class="options">
+                                            <h6>
+                                                {{\App\CentralLogics\Helpers::format_currency($food->price)}}
+                                            </h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end food section -->
+
+     <!-- about section -->
+
+     <section class="about_section layout_padding">
+        <div class="container  ">
+
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="img-box">
+                        <img src="{{ asset('assets/landing/images/about-img.png') }}" alt="">
                     </div>
                 </div>
-            </section>
-            <!-- Trusted Customers Ends -->
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <div class="heading_container">
+                            <h2>
+                                We Are Almado
+                            </h2>
+                        </div>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem praesentium voluptates ab hic, porro aliquid ratione reiciendis qui reprehenderit. Praesentium, magni sunt. Corporis enim libero cupiditate aliquid culpa quia doloremque.
+                        </p>
+                        <a href="{{ route('about-us') }}">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
+    <!-- end about section -->
+
+     <!-- client section -->
+
+     <section class="client_section layout_padding-bottom layout_padding-top">
+        <div class="container">
+            <div class="heading_container heading_center psudo_white_primary mb_45">
+                <h2>
+                    What Says Our Customers
+                </h2>
+            </div>
+            <div class="carousel-wrap row ">
+                <div class="owl-carousel client_owl-carousel">
+                    @foreach(include(public_path('assets/landing_old/data/testimonial.php')) as $data)
+                        <div class="item">
+                            <div class="box">
+                                <div class="detail-box">
+                                    <p>
+                                        {{$data['detail']}}
+                                    </p>
+                                    <h6>
+                                        {{$data['name']}}
+                                    </h6>
+                                    <p>
+                                        {{$data['position']}}
+                                    </p>
+                                </div>
+                                <div class="img-box">
+                                    <img src="{{$data['image']}}" alt="" class="box-img">
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end client section -->
 @endsection
