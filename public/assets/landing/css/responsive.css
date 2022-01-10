@@ -4,7 +4,7 @@
 
 @media (max-width: 992px) {
   .hero_area {
-    min-height: auto;
+    min-height: 350px;
   }
 
   .custom_nav-container .navbar-nav {
@@ -45,6 +45,11 @@ padding-left: 0;
 
   .custom_nav-container .navbar-nav .nav-item .nav-link {
     color: #444;
+  }
+
+  .food_section .filters_menu li {
+    width: 100%;
+    text-align: center;
   }
 }
 
