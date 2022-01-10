@@ -305,6 +305,13 @@ a:focus {
   transition: all 0.3s;
 }
 
+.sticky .custom_nav-container .navbar-toggler span,
+.sticky .custom_nav-container .navbar-toggler span::before,
+.sticky .custom_nav-container .navbar-toggler span::after {
+  background-color: #444;
+}
+
+
 .custom_nav-container .navbar-toggler span::after {
   top: 10px;
 }
@@ -1021,3 +1028,13 @@ a:focus {
   color: inherit;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+.secondary-header {
+  background-color: #222831;
+  padding: 90px 0;
+}
+
+.secondary-header h1 {
+  color: #ffbe33;
+}

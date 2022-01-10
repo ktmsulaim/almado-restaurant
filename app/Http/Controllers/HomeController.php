@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\CentralLogics\Helpers;
 use App\Models\BusinessSetting;
+use App\Models\Category;
+use App\Models\Food;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $sliders = Slider::active()->latest()->limit(5)->get();
+        $foods = Food::latest()->limit(50)->get();
+        $categories = Category::all();
+
+        return view('home', [
+            'sliders' => $sliders,
+            'categories' => $categories,
+            'foods' => $foods,
+        ]);
     }
 
     public function terms_and_conditions()

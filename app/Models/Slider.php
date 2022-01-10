@@ -10,4 +10,9 @@ class Slider extends Model
     use HasFactory;
 
     protected $fillable = [];
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', '=', 1);
+    }
 }
