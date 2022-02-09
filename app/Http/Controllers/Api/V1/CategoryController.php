@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function get_categories()
     {
         try {
-            $categories = Category::where(['position'=>0,'status'=>1])->orderBy('priority','desc')->get();
+            $categories = Category::where(['position'=>0,'status'=>1])->orderBy('order')->orderBy('priority','desc')->get();
             return response()->json($categories, 200);
         } catch (\Exception $e) {
             return response()->json([], 200);
@@ -24,7 +24,7 @@ class CategoryController extends Controller
     public function get_childes($id)
     {
         try {
-            $categories = Category::where(['parent_id' => $id,'status'=>1])->orderBy('priority','desc')->get();
+            $categories = Category::where(['parent_id' => $id,'status'=>1])->orderBy('order')->orderBy('priority','desc')->get();
             return response()->json($categories, 200);
         } catch (\Exception $e) {
             return response()->json([], 200);

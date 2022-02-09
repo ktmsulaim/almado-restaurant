@@ -240,6 +240,7 @@ return [
     'privacy_policy' => 'Privacy policy',
     'privacy_policy_updated' => 'Privacy policy updated!',
     'priority'=>'Priority',
+    'order'=>'Order',
     'product' => 'Product',
     'product_name_required'=>'Food name is required!',
     'product_added_successfully'=>'Food added successfully',

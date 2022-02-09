@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('image')->default('def.png');
             $table->integer('parent_id');
             $table->integer('position');
-            $table->boolean('status')->default(1);
+            $table->boolean('status')->default(10);
             $table->timestamps();
         });
     }

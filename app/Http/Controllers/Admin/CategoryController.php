@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Brian2694\Toastr\Facades\Toastr;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\CentralLogics\Helpers;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\DB;
@@ -94,6 +92,7 @@ class CategoryController extends Controller
         $category = category::find($id);
 
         $category->name = $request->name;
+        $category->order = $request->order;
         $category->image = $request->has('image') ? Helpers::update('category/', $category->image, 'png', $request->file('image')) : $category->image;
         $category->save();
         Toastr::success(trans('messages.category_updated_successfully'));

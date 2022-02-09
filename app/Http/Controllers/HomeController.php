@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         $sliders = Slider::active()->latest()->limit(5)->get();
         $foods = Food::latest()->limit(50)->get();
-        $categories = Category::all();
+        $categories = Category::orderBy('order', 'asc')->get();
 
         return view('home', [
             'sliders' => $sliders,
