@@ -73,6 +73,7 @@ Route::match(['get', 'post'], '/return-senang-pay', 'SenangPayController@return_
 //paystack
 Route::post('/paystack-pay', 'PaystackController@redirectToGateway')->name('paystack-pay');
 Route::get('/paystack-callback', 'PaystackController@handleGatewayCallback')->name('paystack-callback');
+Route::get('/paystack-test', 'PaystackController@test')->name('paystack-test');
 Route::get('/paystack',function (){
     return view('paystack');
 });

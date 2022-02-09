@@ -13,6 +13,7 @@ class Category extends Model
         'parent_id' => 'integer',
         'position' => 'integer',
         'priority' => 'integer',
+        'order' => 'integer',
         'status' => 'integer'
     ];
 

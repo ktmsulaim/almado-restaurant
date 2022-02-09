@@ -29,7 +29,13 @@
                             </div>
                             <input name="position" value="0" style="display: none">
                         </div>
-                        <div class="col-6">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="order">{{ __('messages.order') }}</label>
+                                <input type="number" name="order" id="order" value="{{ $category->order }}" class="form-control" placeholder="Order number">
+                            </div>
+                        </div>
+                        <div class="col-3">
                             <div class="form-group">
                                 <label>{{__('messages.image')}}</label><small style="color: red">* ( {{__('messages.ratio')}} 3:1 )</small>
                                 <div class="custom-file">
@@ -37,7 +43,6 @@
                                            accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
                                     <label class="custom-file-label" for="customFileEg1">{{__('messages.choose')}} {{__('messages.file')}}</label>
                                 </div>
-                                <hr>
                             </div>
                         </div>
                         <div class="col-12">

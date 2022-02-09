@@ -12,7 +12,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
-use Paystack;
+use Unicodeveloper\Paystack\Facades\Paystack;
 
 class PaystackController extends Controller
 {
@@ -32,7 +32,9 @@ class PaystackController extends Controller
 
             return Paystack::getAuthorizationUrl()->redirectNow();
         } catch (\Exception $e) {
-            Toastr::error(trans('messages.your_currency_is_not_supported',['method'=>trans('messages.paystack')]));
+            // Toastr::error(trans('messages.your_currency_is_not_supported',['method'=>trans('messages.paystack')]));
+            echo $e->getMessage();
+            Toastr::error($e->getMessage());
             return Redirect::back();
         }
     }

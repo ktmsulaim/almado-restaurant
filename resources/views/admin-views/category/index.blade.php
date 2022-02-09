@@ -93,6 +93,7 @@
                                         <th style="width: 30%">{{__('messages.name')}}</th>
                                         <th style="width: 10%">{{__('messages.status')}}</th>
                                         <th style="width: 20%">{{__('messages.priority')}}</th>
+                                        <th>{{__('messages.order')}}</th>
                                         <th style="width: 25%">{{__('messages.action')}}</th>
                                     </tr>
                                 </thead>
@@ -123,6 +124,9 @@
                                                 <option value="2" {{$category->priority == 2?'selected':''}}>{{__('messages.high')}}</option>
                                             </select>
                                             </form>
+                                        </td>
+                                        <td>
+                                            {{ $category->order }}
                                         </td>
                                         <td>
                                             <a class="btn btn-sm btn-white"

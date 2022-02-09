@@ -25,6 +25,9 @@
         </form>
     </td>
     <td>
+        {{ $category->order }}
+    </td>
+    <td>
         <a class="btn btn-sm btn-white"
             href="{{route('admin.category.edit',[$category['id']])}}" title="{{__('messages.edit')}} {{__('messages.category')}}"><i class="tio-edit"></i>
         </a>
