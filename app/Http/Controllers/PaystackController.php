@@ -32,9 +32,7 @@ class PaystackController extends Controller
 
             return Paystack::getAuthorizationUrl()->redirectNow();
         } catch (\Exception $e) {
-            // Toastr::error(trans('messages.your_currency_is_not_supported',['method'=>trans('messages.paystack')]));
-            echo $e->getMessage();
-            Toastr::error($e->getMessage());
+            Toastr::error("Failed to proccess the payment");
             return Redirect::back();
         }
     }
@@ -54,7 +52,7 @@ class PaystackController extends Controller
             if ($order->callback != null) {
                 return redirect($order->callback . '&status=success');
             }else{
-                return \redirect()->route('payment-success');
+                return \redirect()->route('payment-success?status=success');
             }
         } else {
             DB::table('orders')
@@ -68,7 +66,7 @@ class PaystackController extends Controller
             if ($order->callback != null) {
                 return redirect($order->callback . '&status=fail');
             }else{
-                return \redirect()->route('payment-fail');
+                return \redirect()->route('payment-fail?status=fail');
             }
         }
     }

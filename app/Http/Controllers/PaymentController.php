@@ -12,6 +12,11 @@ class PaymentController extends Controller
     {
         if ($request->has('callback')) {
             Order::where(['id' => $request->order_id])->update(['callback' => $request['callback']]);
+        } else {
+            Order::where(['id' => $request->order_id])->update(['callback' => route("payment-mobile", [
+                "customer_id" => $request->customer_id,
+                "order_id" => $request->order_id
+            ])]);
         }
 
         session()->put('customer_id', $request['customer_id']);
